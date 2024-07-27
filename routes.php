@@ -2,8 +2,13 @@
 
 require_once 'controllers/UserController.php';
 require_once 'controllers/BookController.php';
+require_once 'controllers/HomeController.php';
 
 $routes = [
+    '/' => [
+        'controller' => 'HomeController',
+        'method' => 'index',
+    ],
     '/user' => [
         'controller' => 'UserController',
         'method' => 'index'
@@ -32,13 +37,13 @@ $routes = [
 
 // Get the incoming url e.g www.example.com/user [/user]
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); //    /user
-$route = $routes[$url]; 
+$route = $routes[$url];
 
-if($route) {
+if ($route) {
     $controller = new $route['controller'](); // new UserController()
     $method = $route['method']; // index
     $controller->$method(); // $controller->index()
-}else{
+} else {
     header("HTTP/1.0 404 Not Found");
     echo "404 Not Found";
 }
