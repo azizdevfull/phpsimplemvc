@@ -9,27 +9,27 @@ $routes = [
         'controller' => 'HomeController',
         'method' => 'index',
     ],
-    '/user' => [
+    '/users' => [
         'controller' => 'UserController',
         'method' => 'index'
     ],
-    '/user/view' => [
+    '/users/view' => [
         'controller' => 'UserController',
         'method' => 'view'
     ],
-    '/user/add' => [
+    '/users/add' => [
         'controller' => 'UserController',
         'method' => 'add'
     ],
-    '/user/insert' => [
+    '/users/insert' => [
         'controller' => 'UserController',
         'method' => 'insert'
     ],
-    '/book' => [
+    '/books' => [
         'controller' => 'BookController',
         'method' => 'index'
     ],
-    '/book/view' => [
+    '/books/view' => [
         'controller' => 'BookController',
         'method' => 'view'
     ]
