@@ -13,7 +13,7 @@ $routes = [
         'controller' => 'UserController',
         'method' => 'index'
     ],
-    '/users/view' => [
+    '/users/show' => [
         'controller' => 'UserController',
         'method' => 'show'
     ],

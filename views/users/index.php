@@ -15,7 +15,7 @@
     <ul>
         <?php foreach ($users as $user): ?>
             <li>
-                <a href="#">
+                <a href="/users/show?id=<?php echo $user['id']; ?>">
                     <?php echo $user['name']; ?>
                 </a>
                 <a href="/users/edit?id=<?php echo $user['id']; ?>">
