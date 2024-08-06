@@ -25,7 +25,7 @@ class UserController
     }
 
     // select detail for user id
-    public function view()
+    public function show()
     {
         $id = $_GET['id'];
         $user = $this->model->find($id);
@@ -33,12 +33,12 @@ class UserController
     }
 
     // show the add user view form
-    public function add()
+    public function create()
     {
-        require 'views/users/add.php';
+        require 'views/users/create.php';
     }
 
-    public function insert()
+    public function store()
     {
         // validation request mehotd
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
@@ -51,19 +51,19 @@ class UserController
         // validation data input
         if (empty($name) || empty($email)) {
             $_SESSION['message'] = 'Data cannot be empty';
-            require 'views/users/add.php';
+            require 'views/users/create.php';
             return;
         }
 
         if ($this->model->checkEmailExists($email)) {
             $_SESSION['message'] = 'Email already exists';
-            require 'views/users/add.php';
+            require 'views/users/create.php';
             return;
         }
         $data = ['name' => $name, 'email' => $email];
         if ($this->model->create($data)) {
             $_SESSION['message'] = 'New user has been added';
-            require 'views/users/add.php';
+            require 'views/users/create.php';
             return;
         }
 

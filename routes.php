@@ -15,15 +15,15 @@ $routes = [
     ],
     '/users/view' => [
         'controller' => 'UserController',
-        'method' => 'view'
+        'method' => 'show'
     ],
-    '/users/add' => [
+    '/users/create' => [
         'controller' => 'UserController',
-        'method' => 'add'
+        'method' => 'create'
     ],
-    '/users/insert' => [
+    '/users/store' => [
         'controller' => 'UserController',
-        'method' => 'insert'
+        'method' => 'store'
     ],
     '/books' => [
         'controller' => 'BookController',
@@ -36,7 +36,7 @@ $routes = [
 ];
 
 // Get the incoming url e.g www.example.com/user [/user]
-$url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); //    /user
+$url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); //    /users
 $route = $routes[$url];
 
 if ($route) {
