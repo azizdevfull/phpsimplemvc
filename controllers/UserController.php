@@ -63,10 +63,41 @@ class UserController
         $data = ['name' => $name, 'email' => $email];
         if ($this->model->create($data)) {
             $_SESSION['message'] = 'New user has been added';
-            require 'views/users/create.php';
-            return;
+            header('Location: /users'); // Redirect after successful deletion
+            exit;
         }
 
+    }
+
+    public function edit()
+    {
+        $id = $_GET['id'];
+        $user = $this->model->find($id);
+        require 'views/users/edit.php';
+    }
+
+    public function update()
+    {
+        $id = $_POST['id'];
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $data = ['name' => $name, 'email' => $email];
+
+        if ($this->model->update($id, $data)) {
+            $_SESSION['message'] = 'User has been updated';
+            header('Location: /users'); // Redirect after successful deletion
+            exit;
+        }
+    }
+
+    public function delete()
+    {
+        $id = $_GET['id'];
+        if ($this->model->delete($id)) {
+            $_SESSION['message'] = 'User has been deleted';
+            header('Location: /users'); // Redirect after successful deletion
+            exit;
+        }
     }
 
 }

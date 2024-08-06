@@ -25,18 +25,31 @@ $routes = [
         'controller' => 'UserController',
         'method' => 'store'
     ],
+    '/users/edit' => [
+        'controller' => 'UserController',
+        'method' => 'edit'
+    ],
+    '/users/update' => [
+        'controller' => 'UserController',
+        'method' => 'update'
+    ],
+    '/users/delete' => [
+        'controller' => 'UserController',
+        'method' => 'delete'
+    ],
     '/books' => [
         'controller' => 'BookController',
         'method' => 'index'
     ],
-    '/books/view' => [
+    '/books/show' => [
         'controller' => 'BookController',
-        'method' => 'view'
-    ]
+        'method' => 'show'
+    ],
+
 ];
 
 // Get the incoming url e.g www.example.com/user [/user]
-$url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); //    /users
+$url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); // /users
 $route = $routes[$url];
 
 if ($route) {
@@ -45,7 +58,7 @@ if ($route) {
     $controller->$method(); // $controller->index()
 } else {
     header("HTTP/1.0 404 Not Found");
-    echo "404 Not Found";
+    require 'views/utilities/404.php';
 }
 
 

@@ -23,12 +23,12 @@ class BookController
         require 'views/books/index.php';
     }
 
-    // select detail for user id
-    public function view()
+    // select detail for book id
+    public function show()
     {
         $id = $_GET['id'];
         $book = $this->model->find($id);
-        require 'views/books/detail.php';
+        require 'views/books/show.php';
     }
 
 }
