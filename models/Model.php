@@ -39,6 +39,13 @@ class Model
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    public function findByEmail($email)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM " . $this->table . " WHERE email = :email");
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
     // Insert a new record
     public function create($data)

@@ -8,26 +8,12 @@ CREATE TABLE `users` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- -- -- Insert Sample data to "users" -- -- --
-INSERT INTO `users` (`name`, `email`, `password`) VALUES
-('John Doe', 'john.doe@example.com', 'password1'),
-('Jane Smith', 'jane.smith@example.com', 'password2'),
-('Bob Johnson', 'bob.johnson@example.com', 'password3'),
-('Sarah Wilson', 'sarah.wilson@example.com', 'password4');
-
--- -- -- Create Table "books" -- -- --
-CREATE TABLE books (
-    id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+-- -- -- Create Table "posts" -- -- --
+CREATE TABLE posts (
+    id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
-    author VARCHAR(255) NOT NULL,
-    publication_date DATE NOT NULL,
+    content TEXT NOT NULL,
+    author_name VARCHAR(25) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 );
-
--- -- -- Insert Sample data to books -- -- --
-INSERT INTO books (title, author, publication_date) VALUES ('The Great Gatsby', 'F. Scott Fitzgerald', '1925-04-10');
-INSERT INTO books (title, author, publication_date) VALUES ('To Kill a Mockingbird', 'Harper Lee', '1960-07-11');
-INSERT INTO books (title, author, publication_date) VALUES ('1984', 'George Orwell', '1949-06-08');
-INSERT INTO books (title, author, publication_date) VALUES ('Pride and Prejudice', 'Jane Austen', '1813-01-28');
-INSERT INTO books (title, author, publication_date) VALUES ('The Catcher in the Rye', 'J.D. Salinger', '1951-07-16');

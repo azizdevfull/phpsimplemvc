@@ -1,49 +1,32 @@
 <?php
 
-require_once 'controllers/UserController.php';
-require_once 'controllers/BookController.php';
 require_once 'controllers/HomeController.php';
+require_once 'controllers/AuthController.php';
 
 $routes = [
     '/' => [
         'controller' => 'HomeController',
         'method' => 'index',
     ],
-    '/users' => [
-        'controller' => 'UserController',
-        'method' => 'index'
+    '/register' => [
+        'controller' => 'AuthController',
+        'method' => 'register'
     ],
-    '/users/show' => [
-        'controller' => 'UserController',
-        'method' => 'show'
+    '/login' => [
+        'controller' => 'AuthController',
+        'method' => 'login'
     ],
-    '/users/create' => [
-        'controller' => 'UserController',
-        'method' => 'create'
+    '/logout' => [
+        'controller' => 'AuthController',
+        'method' => 'logout'
     ],
-    '/users/store' => [
-        'controller' => 'UserController',
-        'method' => 'store'
+    '/handleRegister' => [
+        'controller' => 'AuthController',
+        'method' => 'handleRegister'
     ],
-    '/users/edit' => [
-        'controller' => 'UserController',
-        'method' => 'edit'
-    ],
-    '/users/update' => [
-        'controller' => 'UserController',
-        'method' => 'update'
-    ],
-    '/users/delete' => [
-        'controller' => 'UserController',
-        'method' => 'delete'
-    ],
-    '/books' => [
-        'controller' => 'BookController',
-        'method' => 'index'
-    ],
-    '/books/show' => [
-        'controller' => 'BookController',
-        'method' => 'show'
+    '/handleLogin' => [
+        'controller' => 'AuthController',
+        'method' => 'handleLogin'
     ],
 
 ];

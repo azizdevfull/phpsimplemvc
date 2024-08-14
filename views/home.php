@@ -8,7 +8,9 @@
 </head>
 
 <body>
-    <h1>Salom Dunyo</h1>
+    <h1>Salom <?php echo $_SESSION['user']['name'] ?></h1>
+
+    <a href="/logout">Logout</a>
 </body>
 
 </html>
